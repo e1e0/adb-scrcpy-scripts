@@ -11,11 +11,12 @@ File "TERMUX_scrcpy_in_Linux_script.sh":
  4. Termux: `chmod +rwx ~/.shortcuts/TERMUX_scrcpy_in_Linux_script.sh`
 
 ## Adding `adb` and `scrcpy` to a Linux Deploy container
-(profile: "linux")
+(profile: "linux", GUI + VNC subsystem enabled in "Properties", update Settings > PATH variable "/system/xbin", https://github.com/meefik/linuxdeploy#faq)
 
 ```bash
+       $ ... platform-tools/adb shell
        $ su
-   ....# /data/data/ru.meefik.linuxdeploy/files/bin/linuxdeploy bin/linuxdeploy -p linux shell
+   ....# /data/data/ru.meefik.linuxdeploy/files/bin/linuxdeploy -p linux shell
 root@... 
 ```
 
