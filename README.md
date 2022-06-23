@@ -37,3 +37,8 @@ Properties -> mounts -> + new "/sdcard/" > "/sdcard/".
 ### `scrcpy`:
 
 Go to https://github.com/Genymobile/scrcpy#linux.
+
+```bash
+...
+root@localhost...# echo -e "x-terminal-emulator" >> /etc/profile
+```
