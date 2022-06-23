@@ -15,10 +15,10 @@ File "TERMUX_scrcpy_in_Linux_script.sh":
 `mkdir /data/local/mnt/etc/` if it doesn't exist, update Settings > PATH variable "/system/xbin", https://github.com/meefik/linuxdeploy#faq)
 
 ```bash
-           $ ... platform-tools/adb shell
-             $ su
-           ....# /data/data/ru.meefik.linuxdeploy/files/bin/linuxdeploy -p linux shell
-root@localhost...# uname -m    # The machine hardware name
+... platform-tools/adb shell                                           # remote device shell
+  su                                                                     # root login
+    /data/data/ru.meefik.linuxdeploy/files/bin/linuxdeploy -p linux shell  # container root login
+      uname -m                                                               # the machine hardware name
 ```
 
 ### "x86_64" machine hardware:
