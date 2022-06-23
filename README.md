@@ -38,7 +38,22 @@ Properties -> mounts -> + new "/sdcard/" > "/sdcard/".
 
 Go to https://github.com/Genymobile/scrcpy#linux.
 
+"aarch64" machine is: https://github.com/Genymobile/scrcpy/blob/master/BUILD.md#simple,  
+`nano ./install_release.sh` -> "--check" to "-c", replace BusyBox package with apt package:
+
+```bash
+      exit # device shell
+    mount -o rw,remount /system 2>/dev/null || mount -o rw,remount / 2>/dev/null
+    rm /system/xbin/ar
+    /data/data/ru.meefik.linuxdeploy/files/bin/linuxdeploy -p linux shell
+      apt-get install --reinstall binutils
+      cd scrcpy
+```
+
+## Executing `adb` and `scrcpy`
+
+.....
 ```bash
 ...
-root@localhost...# sudo -u android -i bash -c 'mkdir Desktop; echo -e "#\!/usr/bin/bash\nx-terminal-emulator" > Desktop/terminal.sh'; chmod u+x /home/android/Desktop/terminal.sh
+      sudo -u android -i bash -c 'mkdir Desktop; echo -e "#\!/usr/bin/bash\nx-terminal-emulator" > Desktop/terminal.sh'; chmod u+x /home/android/Desktop/terminal.sh
 ```
