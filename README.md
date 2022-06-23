@@ -35,3 +35,5 @@ Properties -> mounts -> + new "/sdcard/" > "/sdcard/".
  `cp -R` it from "/sdcard/").
 
 ### `scrcpy`:
+
+Go to https://github.com/Genymobile/scrcpy#linux.
