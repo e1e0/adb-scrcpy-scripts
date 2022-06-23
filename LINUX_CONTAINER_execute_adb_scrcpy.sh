@@ -1,11 +1,11 @@
 #! /usr/bin/bash
 
-read -p "device IP address: " -i "192.168.[num.num]"
+read -e -i "192.168.[num.num]" -p "device IP address: "
 
 echo "Connecting to \"$REPLY\"..."
 
-if [[ adb connect $REPLY ]]; then
+if ( adb connect $REPLY ); then
   scrcpy
 else
-  echo "Can't connect!"
+  echo "Can't connect! 🙁"
 fi
