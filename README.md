@@ -11,7 +11,7 @@ File "TERMUX_scrcpy_in_Linux_script.sh":
  4. Termux: `chmod +rwx ~/.shortcuts/TERMUX_scrcpy_in_Linux_script.sh`
 
 ## Adding `adb` and `scrcpy` to a Linux Deploy container
-(profile: "linux", GUI + VNC subsystem + Mounts enabled in "Properties" - mounts: "/system/" > "/system/",  
+(profile: "linux", GUI + X11 subsystem + Mounts enabled in "Properties" - mounts: "/system/" > "/system/",  
 `mkdir /data/local/mnt/etc/` if it doesn't exist, update Settings > PATH variable "/system/xbin", https://github.com/meefik/linuxdeploy#faq)
 
 ```bash
@@ -63,7 +63,7 @@ $ exit
 ... platform-tools/adb shell                                           # remote device shell
   su                                                                     # root login
     /data/data/ru.meefik.linuxdeploy/files/bin/linuxdeploy -p linux shell  # container root login
-      sudo -u android mv /sdcard/LINUX_CONTAINER_execute_adb_scrcpy.sh Desktop/LINUX_CONTAINER_execute_adb_scrcpy.sh
+      sudo -u android bash -c 'mv /sdcard/LINUX_CONTAINER_execute_adb_scrcpy.sh ~/Desktop/LINUX_CONTAINER_execute_adb_scrcpy.sh'
       chmod u+x /home/android/Desktop/LINUX_CONTAINER_execute_adb_scrcpy.sh
       /bin/chown android /home/android/Desktop/LINUX_CONTAINER_execute_adb_scrcpy.sh
       exit
@@ -71,4 +71,4 @@ $ exit
   exit
 ```
 
-Login to container in VNC, run **LINUX_CONTAINER_execute_adb_scrcpy.sh**...
+Login to container in ~~VNC~~ X11 (XServer XSDL), run ~/Desktop/**LINUX_CONTAINER_execute_adb_scrcpy.sh**...
