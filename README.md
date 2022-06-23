@@ -40,5 +40,5 @@ Go to https://github.com/Genymobile/scrcpy#linux.
 
 ```bash
 ...
-root@localhost...# sudo -u android echo -e "#\!/usr/bin/bash\nx-terminal-emulator" > /home/android/Desktop/terminal.sh
+root@localhost...# sudo -u android -i bash -c 'mkdir Desktop; echo -e "#\!/usr/bin/bash\nx-terminal-emulator" > /home/android/Desktop/terminal.sh'
 ```
