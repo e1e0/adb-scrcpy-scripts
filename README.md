@@ -52,8 +52,21 @@ Go to https://github.com/Genymobile/scrcpy#linux.
 
 ## Executing `adb` and `scrcpy`
 
-.....
+(Properties -> mounts has /sdcard/" > "/sdcard/")
 ```bash
 ...
+      exit
+    exit
+$ exit
+... platform-tools/adb push LINUX_CONTAINER_execute_adb_scrcpy.sh /sdcard/LINUX_CONTAINER_execute_adb_scrcpy.sh
+... platform-tools/adb shell                                                            # remote device shell
+  su --command "/data/data/ru.meefik.linuxdeploy/files/bin/linuxdeploy -p linux shell"  # root login, container root login
+      sudo -u android mv /sdcard/LINUX_CONTAINER_execute_adb_scrcpy.sh Desktop/LINUX_CONTAINER_execute_adb_scrcpy.sh
+      chmod u+x /home/android/Desktop/LINUX_CONTAINER_execute_adb_scrcpy.sh
+      ??? chown android /home/android/Desktop/LINUX_CONTAINER_execute_adb_scrcpy.sh
+
+
+
+
       sudo -u android -i bash -c 'mkdir Desktop; echo -e "#\!/usr/bin/bash\nx-terminal-emulator" > Desktop/terminal.sh'; chmod u+x /home/android/Desktop/terminal.sh
 ```
