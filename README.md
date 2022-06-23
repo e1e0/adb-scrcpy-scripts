@@ -11,16 +11,27 @@ File "TERMUX_scrcpy_in_Linux_script.sh":
  4. Termux: `chmod +rwx ~/.shortcuts/TERMUX_scrcpy_in_Linux_script.sh`
 
 ## Adding `adb` and `scrcpy` to a Linux Deploy container
-(profile: "linux", GUI + VNC subsystem enabled in "Properties", update Settings > PATH variable "/system/xbin", https://github.com/meefik/linuxdeploy#faq)
+(profile: "linux", GUI + VNC subsystem + Mounts enabled in "Properties" - mounts: "/system/" > "/system/",  
+`mkdir /data/local/mnt/etc/` if it doesn't exist, update Settings > PATH variable "/system/xbin", https://github.com/meefik/linuxdeploy#faq)
 
 ```bash
-       $ ... platform-tools/adb shell
-       $ su
-   ....# /data/data/ru.meefik.linuxdeploy/files/bin/linuxdeploy -p linux shell
-root@... 
+           $ ... platform-tools/adb shell
+             $ su
+           ....# /data/data/ru.meefik.linuxdeploy/files/bin/linuxdeploy -p linux shell
+root@localhost...# uname -m    # The machine hardware name
 ```
 
+### "x86_64" machine hardware:
 
+https://developer.android.com/studio/releases/platform-tools#downloads
 
+Properties -> mounts -> + new "/sdcard/" > "/sdcard/".
+`cp -R` the folder in "/sdcard/".
 
-*adb + https://opensource.com/article/18/8/how-install-software-linux-command-line*
+### "aarch64" machine hardware:
+
+- [`apt-get`](https://opensource.com/article/18/8/how-install-software-linux-command-line)` install android-sdk-platform-tools`.
+- or do https://github.com/thejunkjon/android-tools (Properties -> mounts -> + new "/sdcard/" > "/sdcard/",  
+ `cp -R` it from "/sdcard/").
+
+### `scrcpy`:
