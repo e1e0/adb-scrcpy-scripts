@@ -9,7 +9,7 @@ adb-scrcpy-scripts: Bash scripts for Android screen\n\
 read -e -i "192.168.[num.num]" -p "device IP address: "
 
 i=1
-while ($i < 2); do
+while (($i < 2)); do
   echo "Connecting to \"$REPLY\"..."
   adb connect $REPLY
 
