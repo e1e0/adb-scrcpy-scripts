@@ -8,10 +8,11 @@ adb-scrcpy-scripts: Bash scripts for Android screen\n\
 
 read -e -i "192.168.[num.num]" -p "device IP address: "
 
-declare -x SDL_VIDEODRIVER='x11'
 echo "Connecting to \"$REPLY\"..."
+adb connect $REPLY
 
-if ( adb connect $REPLY ); then
+if $(adb devices | grep 'unauthorized') == ""; then
+  declare -x SDL_VIDEODRIVER='x11'
   scrcpy --render-driver=software
 else
   echo "Can't connect! 🙁"
