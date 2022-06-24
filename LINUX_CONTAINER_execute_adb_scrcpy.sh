@@ -16,9 +16,9 @@ while (($i < 2)); do
     scrcpy --render-driver=software
     break
   else
-    echo "\nCan't connect! :-("
-    adb reconnect offline
-    sleep 10s
+    echo -e "\nCan't connect! :-("
+    adb reconnect offline; sleep 10s
+    adb connect $REPLY
     i+=1
   fi
 done
