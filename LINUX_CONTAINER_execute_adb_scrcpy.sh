@@ -11,10 +11,11 @@ read -e -i "192.168.[num.num]" -p "device IP address: "
 echo "Connecting to \"$REPLY\"..."
 adb connect $REPLY
 
-if $(adb devices | grep 'unauthorized') == ""; then
+if [[ $(adb devices | grep 'unauthorized') == "" ]]; then
   declare -x SDL_VIDEODRIVER='x11'
   scrcpy --render-driver=software
 else
   echo "Can't connect! 🙁"
+  adb reconnect offline
   sleep 3s
 fi
