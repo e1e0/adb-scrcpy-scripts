@@ -1,9 +1,10 @@
 #! /usr/bin/bash
 
-echo -e "adb-scrcpy-scripts: Bash scripts for Android\n\
-      screen control in a Linux Deploy \"chroot\"\n\
-      container. Copyright (c) 2022 Edward \"philosophical\" J\n\
-      (https://github.com/e1e0) - MIT License."
+echo -e "\
+adb-scrcpy-scripts: Bash scripts for Android screen\n\
+  control in a Linux Deploy \"chroot\" container.\n\
+   Copyright (c) 2022 Edward \"philosophical\" J\n\
+     (https://github.com/e1e0) - MIT License."
 
 read -e -i "192.168.[num.num]" -p "device IP address: "
 
