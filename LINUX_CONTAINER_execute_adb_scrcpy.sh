@@ -15,7 +15,7 @@ if [[ $(adb devices | grep 'unauthorized') == "" ]]; then
   declare -x SDL_VIDEODRIVER='x11'
   scrcpy --render-driver=software
 else
-  echo "Can't connect! 🙁"
+  echo "Can't connect! \U1F641"
   adb reconnect offline
-  sleep 3s
+  sleep 10s
 fi
