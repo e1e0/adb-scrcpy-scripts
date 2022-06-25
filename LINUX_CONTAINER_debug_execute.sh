@@ -1,1 +1,1 @@
-/usr/bin/bash -x ~/Desktop/LINUX_CONTAINER_execute_adb_scrcpy.sh
+/usr/bin/bash -x -c "~/Desktop/LINUX_CONTAINER_execute_adb_scrcpy.sh && read -p 'Exit?'"
