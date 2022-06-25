@@ -4,7 +4,7 @@ echo -e "\
 adb-scrcpy-scripts: Bash scripts for Android screen\n\
   control in a Linux Deploy \"chroot\" container.\n\
    Copyright (c) 2022 Edward \"philosophical\" J\n\
-     (https://github.com/e1e0) - MIT License."
+     (https://github.com/e1e0) - MIT License.\n"
 
 read -e -i "192.168.[num.num]" -p "device IP address: "
 echo "Connecting to \"$REPLY\"..."; adb connect $REPLY
@@ -17,7 +17,7 @@ while (($i < 2)); do
     break
   else
     echo -e "\nCan't connect! :-("
-    adb reconnect offline; sleep 10s
+    sleep 3s; echo "Re-connecting..."
     adb connect $REPLY
     i+=1
   fi
