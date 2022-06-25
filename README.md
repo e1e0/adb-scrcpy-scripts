@@ -5,12 +5,14 @@ With code saved in folder "~/adb-scrcpy-scripts"...
 
 ## Copy file to Termux [shortcuts](https://github.com/termux/termux-widget#readme), set permissions
 
-File "TERMUX_STOP_scrcpy_in_Linux_script.sh":
+File "TERMUX_**STOP**_scrcpy_in_Linux_script.sh":
 
  1. `... platform-tools/adb push ~/adb-scrcpy-scripts/TERMUX_STOP_scrcpy_in_Linux_script.sh /sdcard/TERMUX_STOP_scrcpy_in_Linux_script.sh`
  2. https://wiki.termux.com/wiki/Internal_and_external_storage
  3. Termux: `mv ~/storage/shared/TERMUX_STOP_scrcpy_in_Linux_script.sh ~/.shortcuts/TERMUX_STOP_scrcpy_in_Linux_script.sh`
  4. Termux: `chmod +rwx ~/.shortcuts/TERMUX_STOP_scrcpy_in_Linux_script.sh`
+
+and do that for "TERMUX_scrcpy_in_Linux_script.sh".
 
 ## Adding `adb` and `scrcpy` to a Linux Deploy container
 (profile: "linux", GUI + X11 subsystem + Mounts enabled in "Properties" - mounts: "/system/" > "/system/",  
@@ -34,9 +36,7 @@ Properties -> mounts -> + new "/sdcard/" > "/sdcard/".
 
 ### `scrcpy`:
 
-Go to https://github.com/Genymobile/scrcpy#linux.
-
-"aarch64" machine is: https://github.com/Genymobile/scrcpy/blob/master/BUILD.md#simple,  
+Go to https://github.com/Genymobile/scrcpy#linux or ("aarch64" machine) https://github.com/Genymobile/scrcpy/blob/master/BUILD.md#simple,  
 `nano ./install_release.sh` -> "--check" to "-c", replace BusyBox package with apt package:
 
 ```bash
