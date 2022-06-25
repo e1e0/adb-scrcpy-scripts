@@ -17,6 +17,9 @@ while (($i <= 2)); do
     break
   else
     echo -e "\nCan't connect! :-("
+    if [[ $(adb devices | grep 'unauthorized$') != "" ]]; then
+      adb reconnect offline
+    fi
     sleep 3s; echo "Re-connecting..."
     adb connect $REPLY
     i+=1
