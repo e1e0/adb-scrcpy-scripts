@@ -22,6 +22,6 @@ while (($i <= 2)); do
     fi
     sleep 3s; echo "Re-connecting..."
     adb connect $REPLY
-    i+=1
+    let "i+=1"
   fi
 done
