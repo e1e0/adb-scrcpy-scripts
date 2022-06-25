@@ -20,8 +20,9 @@ while (($i <= 2)); do
     if [[ $(adb devices | grep 'unauthorized$') != "" ]]; then
       adb reconnect offline
     fi
-    sleep 3s; echo "Re-connecting..."
+    sleep 6s; echo "Re-connecting..."
     adb connect $REPLY
+    sleep 6s
     let "i+=1"
   fi
 done
