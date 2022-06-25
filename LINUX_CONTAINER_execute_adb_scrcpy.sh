@@ -10,7 +10,7 @@ read -e -i "192.168.[num.num]" -p "device IP address: "
 echo "Connecting to \"$REPLY\"..."; adb connect $REPLY
 
 i=0
-while (($i < 2)); do
+while (($i <= 2)); do
   if [[ $(adb devices | grep 'device$') != "" ]]; then
     declare -x SDL_VIDEODRIVER='x11'
     scrcpy --render-driver=software
