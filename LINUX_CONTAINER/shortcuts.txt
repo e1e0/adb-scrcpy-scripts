@@ -5,40 +5,40 @@ By default, it's (left) [Alt] or (left) [Super].
 
 [Super] is typically the [Windows] or [Cmd] key.
 
-* ¹Double-click on black borders to remove them. *
-* ²Right-click turns the screen on if it was off, presses BACK otherwise. *
-* ³4th and 5th mouse buttons, if your mouse has them. *
-* ⁴For react-native apps in development, `MENU` triggers development menu. *
-* ⁵Only on Android >= 7. *
+#1 Double-click on black borders to remove them.
+#2 Right-click turns the screen on if it was off, presses BACK otherwise.
+#3 4th and 5th mouse buttons, if your mouse has them.
+#4 For react-native apps in development, `MENU` triggers development menu.
+#5 Only on Android >= 7.
 
- | Action                                      | Shortcut - modifier: (left) alt.
- | ------------------------------------------- | -----------------------------
- | Switch fullscreen mode                      | [MOD]+[f]
- | Rotate display left                         | [MOD]+[←] *(left)*
- | Rotate display right                        | [MOD]+[→] *(right)*
- | Resize window to 1:1 (pixel-perfect)        | [MOD]+[g]
- | Resize window to remove black borders       | [MOD]+[w] \| *Double-left-click¹*
- | Click on `HOME`                             | [MOD]+[h] \| *Middle-click*
- | Click on `BACK`                             | [MOD]+[b] \| *Right-click²*
- | Click on `APP_SWITCH`                       | [MOD]+[s] \| *4th-click³*
- | Click on `MENU` (unlock screen)⁴            | [MOD]+[m]
- | Click on `VOLUME_UP`                        | [MOD]+[↑] *(up)*
- | Click on `VOLUME_DOWN`                      | [MOD]+[↓] *(down)*
- | Click on `POWER`                            | [MOD]+[p]
- | Power on                                    | *Right-click²*
- | Turn device screen off (keep mirroring)     | [MOD]+[o]
- | Turn device screen on                       | [MOD]+[Shift]+[o]
- | Rotate device screen                        | [MOD]+[r]
- | Expand notification panel                   | [MOD]+[n] \| *5th-click³*
- | Expand settings panel                       | [MOD]+[n]+[n] \| *Double-5th-click³*
- | Collapse panels                             | [MOD]+[Shift]+[n]
- | Copy to clipboard⁵                          | [MOD]+[c]
- | Cut to clipboard⁵                           | [MOD]+[x]
- | Synchronize clipboards and paste⁵           | [MOD]+[v]
- | Inject computer clipboard text              | [MOD]+[Shift]+[v]
- | Enable/disable FPS counter (on stdout)      | [MOD]+[i]
- | Pinch-to-zoom                               | [Ctrl]+*click-and-move*
- | Drag & drop APK file                        | Install APK from computer
- | Drag & drop non-APK file                    | [Push file to device](#push-file-to-device)
+ | Action                                    | Shortcut - modifier: (left) alt.
+ +-------------------------------------------+---------------------------------
+ | Switch fullscreen mode                    | [MOD]+[f]
+ | Rotate display left                       | [MOD]+[<-] *(left)*
+ | Rotate display right                      | [MOD]+[->] *(right)*
+ | Resize window to 1:1 (pixel-perfect)      | [MOD]+[g]
+ | Resize window to remove black borders     | [MOD]+[w] \| *Double-left-click#1*
+ | Click on `HOME`                           | [MOD]+[h] \| *Middle-click*
+ | Click on `BACK`                           | [MOD]+[b] \| *Right-click#2*
+ | Click on `APP_SWITCH`                     | [MOD]+[s] \| *4th-click#3*
+ | Click on `MENU` (unlock screen)#4         | [MOD]+[m]
+ | Click on `VOLUME_UP`                      | [MOD]+[↑] *(up)*
+ | Click on `VOLUME_DOWN`                    | [MOD]+[↓] *(down)*
+ | Click on `POWER`                          | [MOD]+[p]
+ | Power on                                  | *Right-click#2*
+ | Turn device screen off (keep mirroring)   | [MOD]+[o]
+ | Turn device screen on                     | [MOD]+[Shift]+[o]
+ | Rotate device screen                      | [MOD]+[r]
+ | Expand notification panel                 | [MOD]+[n] \| *5th-click#3*
+ | Expand settings panel                     | [MOD]+[n]+[n] \| *Double-5th-click#3*
+ | Collapse panels                           | [MOD]+[Shift]+[n]
+ | Copy to clipboard#5                       | [MOD]+[c]
+ | Cut to clipboard#5                        | [MOD]+[x]
+ | Synchronize clipboards and paste#5        | [MOD]+[v]
+ | Inject computer clipboard text            | [MOD]+[Shift]+[v]
+ | Enable/disable FPS counter (on stdout)    | [MOD]+[i]
+ | Pinch-to-zoom                             | [Ctrl]+*click-and-move*
+ | Drag & drop APK file                      | Install APK from computer
+ | Drag & drop non-APK file                  | Push file to device
 
 Shortcuts with repeated keys are executed by releasing and pressing the key a second time.
