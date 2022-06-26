@@ -57,13 +57,15 @@ Go to https://github.com/Genymobile/scrcpy#linux or ("aarch64" machine) https://
       exit
     exit
 $ exit
-... platform-tools/adb push ~/adb-scrcpy-scripts/LINUX_CONTAINER_execute_adb_scrcpy.sh /sdcard/LINUX_CONTAINER_execute_adb_scrcpy.sh
+... platform-tools/adb push ~/adb-scrcpy-scripts/LINUX_CONTAINER/ /sdcard/LINUX_CONTAINER/
 ... platform-tools/adb shell                                           # remote device shell
   su                                                                     # root login
     /data/data/ru.meefik.linuxdeploy/files/bin/linuxdeploy -p linux shell  # container root login
-      sudo -u android bash -c 'mv /sdcard/LINUX_CONTAINER_execute_adb_scrcpy.sh ~/Desktop/LINUX_CONTAINER_execute_adb_scrcpy.sh'
-      chmod u+x /home/android/Desktop/LINUX_CONTAINER_execute_adb_scrcpy.sh
-      /bin/chown android /home/android/Desktop/LINUX_CONTAINER_execute_adb_scrcpy.sh
+      sudo -u android bash -c 'mv /sdcard/LINUX_CONTAINER/ ~/Desktop/'
+      readarray -t files <<<"$(ls /home/android/Desktop/LINUX_CONTAINER/ | sed -E '/.+\.[^s][^h].*/d')";\
+        declare -p files;
+      for filename in $files; do chmod u+x "/home/android/Desktop/LINUX_CONTAINER/$filename"; \
+        /bin/chown android "/home/android/Desktop/LINUX_CONTAINER/$filename"; done
       exit
     exit
   exit

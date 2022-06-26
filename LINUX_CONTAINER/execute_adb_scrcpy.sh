@@ -12,8 +12,9 @@ echo "Connecting to \"$REPLY\"..."; adb connect $REPLY
 i=0
 while (($i <= 2)); do
   if [[ $(adb devices | grep 'device$') != "" ]]; then
+    cat ~/Desktop/LINUX_CONTAINER/shortcuts.txt && echo
     declare -x SDL_VIDEODRIVER='x11'
-    scrcpy --render-driver=software
+    scrcpy --render-driver=software --shortcut-mod=lalt
     break
   else
     echo -e "\nCan't connect! :-("
