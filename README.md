@@ -64,8 +64,8 @@ $ exit
       sudo -u android bash -c 'mv /sdcard/LINUX_CONTAINER/ ~/Desktop/'
       readarray -t files <<<"$(ls /home/android/Desktop/LINUX_CONTAINER/ | sed -E '/.+\.[^s][^h].*/d')";\
         declare -p files;
-      for filename in $files; do chmod u+x "/home/android/Desktop/LINUX_CONTAINER/$filename"; \
-        /bin/chown android "/home/android/Desktop/LINUX_CONTAINER/$filename"; done
+      for (( i=0 ; i < ${#files[*]} ; ++i )); do chmod u+x "/home/android/Desktop/LINUX_CONTAINER/${files[$i]}"; \
+        /bin/chown android "/home/android/Desktop/LINUX_CONTAINER/${files[$i]}"; done
       exit
     exit
   exit
