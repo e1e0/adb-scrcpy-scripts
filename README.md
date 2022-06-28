@@ -33,7 +33,7 @@ copy that "platform-tools" folder to `$HOME`, `... platform-tools/adb push ~/pla
 
  1. `... platform-tools/adb push ~/adb-scrcpy-scripts/add_to_container.sh /sdcard/add_to_container.sh`
  2. `... platform-tools/adb shell`
- 3. `su --command "mv /sdcard/add_to_container.sh ~/ && { . ~/add_to_container.sh '`\[that hardware name]`' && rm ~/add_to_container.sh; }"`
+ 3. `su --command "cp /sdcard/add_to_container.sh ~/ && { . ~/add_to_container.sh '`\[that hardware name]`' && rm ~/add_to_container.sh; }"`
 
 ## Executing `adb` and `scrcpy`
 
