@@ -1,6 +1,6 @@
 function continue_script_new_shell () {
-  env echo '$2' > /sdcard/$1.sh
-  next="mv /sdcard/$1.sh ~/ && { . ~/$1.sh && rm ~/$1.sh; }"
+  env echo "$2" > /data/local/tmp/$1.sh
+  next="mv /data/local/tmp/$1.sh ~/ && { . ~/$1.sh && rm ~/$1.sh; }"
 }
 
 if [[ $1 == 'aarch64' ]]; then

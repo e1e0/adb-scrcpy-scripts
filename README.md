@@ -16,7 +16,7 @@ and do that for "TERMUX_scrcpy_in_Linux_script.sh".
 
 ## Adding `adb` and `scrcpy` to a Linux Deploy container
 (profile: "linux", GUI + X11 subsystem + Mounts enabled in "Properties" - new mounts: "/system/" > "/system/",  
-"/sdcard/" > "/sdcard/", `mkdir /data/local/mnt/etc/` if it doesn't exist, update Settings > PATH variable  
+"/sdcard/" > "/sdcard/", "/data/local/tmp/" > "/data/local/tmp/", `mkdir /data/local/mnt/etc/` if it doesn't exist, update Settings > PATH variable  
 "/system/xbin", https://github.com/meefik/linuxdeploy#faq)
 
 ```bash
@@ -33,7 +33,8 @@ copy that "platform-tools" folder to `$HOME`, `... platform-tools/adb push ~/pla
 
  1. `... platform-tools/adb push ~/adb-scrcpy-scripts/add_to_container.sh /sdcard/add_to_container.sh`
  2. `... platform-tools/adb shell`
- 3. `su --command "cp /sdcard/add_to_container.sh ~/ && { . ~/add_to_container.sh '`\[that hardware name]`' && rm ~/add_to_container.sh; }"`
+ 3. `su --command "cat /sdcard/add_to_container.sh > /data/local/tmp/add_to_container.sh && { . /data/local/tmp/add_to_container.sh '`
+\[that hardware name]`' && rm /data/local/tmp/add_to_container.sh; }"`
 
 ## Executing `adb` and `scrcpy`
 
@@ -58,4 +59,4 @@ $ exit
   exit
 ```
 
-Login to container in ~~VNC~~ X11 (Linux Deploy -> "START", XServer XSDL), run ~/Desktop/**LINUX_CONTAINER/execute_adb_scrcpy.sh**...
+Login to container in ~~VNC~~ X11 (Linux Deploy -> "START", XServer XSDL), run ~/Desktop/**LINUX_CONTAINER_execute_adb_scrcpy.sh**...
