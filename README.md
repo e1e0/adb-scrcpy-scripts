@@ -15,38 +15,25 @@ File "TERMUX_**STOP**_scrcpy_in_Linux_script.sh":
 and do that for "TERMUX_scrcpy_in_Linux_script.sh".
 
 ## Adding `adb` and `scrcpy` to a Linux Deploy container
-(profile: "linux", GUI + X11 subsystem + Mounts enabled in "Properties" - mounts: "/system/" > "/system/",  
-`mkdir /data/local/mnt/etc/` if it doesn't exist, update Settings > PATH variable "/system/xbin", https://github.com/meefik/linuxdeploy#faq)
+(profile: "linux", GUI + X11 subsystem + Mounts enabled in "Properties" - new mounts: "/system/" > "/system/",  
+"/sdcard/" > "/sdcard/", `mkdir /data/local/mnt/etc/` if it doesn't exist, update Settings > PATH variable  
+"/system/xbin", https://github.com/meefik/linuxdeploy#faq)
 
 ```bash
 ... platform-tools/adb shell                                           # remote device shell
   su                                                                     # root login
     /data/data/ru.meefik.linuxdeploy/files/bin/linuxdeploy -p linux shell  # container root login
       uname -m                                                               # the machine hardware name
+      exit
+    exit
+  exit
 ```
+**If** the machine hardware is "x86_64": https://developer.android.com/studio/releases/platform-tools#downloads,  
+copy that "platform-tools" folder to `$HOME`, `... platform-tools/adb push ~/platform-tools /sdcard/platform-tools`
 
-Properties -> mounts -> + new "/sdcard/" > "/sdcard/".
-
- - **"x86_64" machine hardware:** https://developer.android.com/studio/releases/platform-tools#downloads,  
-   `cp -R` the folder in "/sdcard/".
-
- - **"aarch64" machine hardware:**
-   - [`apt-get`](https://opensource.com/article/18/8/how-install-software-linux-command-line)` install android-sdk-platform-tools`
-   - or do https://github.com/thejunkjon/android-tools (`cp -R` it from "/sdcard/").
-
-### `scrcpy`:
-
-Go to https://github.com/Genymobile/scrcpy#linux or ("aarch64" machine) https://github.com/Genymobile/scrcpy/blob/master/BUILD.md#simple,  
-`nano ./install_release.sh` -> "--check" to "-c", replace BusyBox package with apt package:
-
-```bash
-      exit # device shell
-    mount -o rw,remount /system 2>/dev/null || mount -o rw,remount / 2>/dev/null
-    rm /system/xbin/ar
-    /data/data/ru.meefik.linuxdeploy/files/bin/linuxdeploy -p linux shell
-      apt-get install --reinstall binutils
-      cd scrcpy
-```
+ 1. `... platform-tools/adb push ~/adb-scrcpy-scripts/add_to_container.sh /sdcard/add_to_container.sh`
+ 2. `... platform-tools/adb shell`
+ 3. `su --command "mv /sdcard/add_to_container.sh ~/ && { . ~/add_to_container.sh '`\[that hardware name]`' && rm ~/add_to_container.sh; }"`
 
 ## Executing `adb` and `scrcpy`
 
