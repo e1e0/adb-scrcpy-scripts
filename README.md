@@ -14,10 +14,11 @@ File "TERMUX_**STOP**_scrcpy_in_Linux_script.sh":
 
 and do that for "TERMUX_scrcpy_in_Linux_script.sh".
 
-## Adding `adb` and `scrcpy` to a Linux Deploy container
-(profile: "linux", GUI + X11 subsystem + Mounts enabled in "Properties" - new mounts: "/system/" > "/system/",  
-"/sdcard/" > "/sdcard/", "/data/local/tmp/" > "/data/local/tmp/", `mkdir /data/local/mnt/etc/` if it doesn't exist, update Settings > PATH variable  
-"/system/xbin", https://github.com/meefik/linuxdeploy#faq)
+## `adb` and `scrcpy` in a Linux Deploy container
+
+(profile: "linux", Mounts + GUI + X11 subsystem enabled in "Properties" **-> new mounts**: "/system/xbin/" > "/system/xbin/",
+"/data/local/tmp/" > "/data-tmp/", "/sdcard/" > "/sdcard/", update Settings > PATH variable "/system/xbin",  
+https://github.com/meefik/linuxdeploy#faq, `mkdir /data/local/mnt/etc/` if it doesn't exist)
 
 ```bash
 ... platform-tools/adb shell                                           # remote device shell
@@ -25,6 +26,11 @@ and do that for "TERMUX_scrcpy_in_Linux_script.sh".
     /data/data/ru.meefik.linuxdeploy/files/bin/linuxdeploy -p linux shell  # container root login
       uname -m                                                               # the machine hardware name
       exit
+
+    # If hardware name is "aarch64", replace BusyBox package with apt package:
+    mount -o rw,remount /system 2>/dev/null || mount -o rw,remount / 2>/dev/null
+    rm /system/xbin/ar
+
     exit
   exit
 ```
@@ -33,19 +39,15 @@ copy that "platform-tools" folder to `$HOME`, `... platform-tools/adb push ~/pla
 
  1. `... platform-tools/adb push ~/adb-scrcpy-scripts/add_to_container.sh /sdcard/add_to_container.sh`
  2. `... platform-tools/adb shell`
- 3. `su --command "cat /sdcard/add_to_container.sh > /data/local/tmp/add_to_container.sh && { . /data/local/tmp/add_to_container.sh '`
-\[that hardware name]`' && rm /data/local/tmp/add_to_container.sh; }"`
-
-## Executing `adb` and `scrcpy`
-
-(Properties -> mounts has /sdcard/" > "/sdcard/")
+ 3. `su --command "cat /sdcard/add_to_container.sh > /data/local/tmp/add_to_container.sh && /data/data/ru.meefik.linuxdeploy/files/bin/linuxdeploy -p linux shell"`
+    - `bash -c ". /data-tmp/add_to_container.sh `\[that hardware name]`"`
+    - `exit`
+ 4. `su --command "rm /data/local/tmp/add_to_container.sh"`
 
 ```bash
 ...
-      exit
-    exit
 $ exit
-... platform-tools/adb push ~/adb-scrcpy-scripts/LINUX_CONTAINER/ /sdcard/LINUX_CONTAINER/
+... platform-tools/adb push ~/adb-scrcpy-scripts/LINUX_CONTAINER/ /sdcard/
 ... platform-tools/adb shell                                           # remote device shell
   su                                                                     # root login
     /data/data/ru.meefik.linuxdeploy/files/bin/linuxdeploy -p linux shell  # container root login
@@ -59,4 +61,6 @@ $ exit
   exit
 ```
 
-Login to container in ~~VNC~~ X11 (Linux Deploy -> "START", XServer XSDL), run ~/Desktop/**LINUX_CONTAINER_execute_adb_scrcpy.sh**...
+### Executing
+
+Login to container in ~~VNC~~ X11 (Linux Deploy -> "START", XServer XSDL), run (~/Desktop/)**LINUX_CONTAINER/execute_adb_scrcpy.sh**...
